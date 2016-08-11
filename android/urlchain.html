@@ -1,0 +1,16 @@
+<html>
+<body>
+    <h1>redirecting ...</h1>
+
+    <script>
+        // expected url example: jiniouschoi.github.io/android/urlchain.html?href1=next_url
+        var url = location.href;
+        var q_href1 = 'href1=';
+        var i_href1 = url.indexOf(q_href1) + q_href1.length;
+        var v_href1 = url.substr(i_href1);
+        v_href1 = decodeURIComponent(v_href1);
+
+        location.assign(v_href1);
+    </script>
+</body>
+</html>
