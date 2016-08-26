@@ -3,14 +3,26 @@
     <h1>redirecting ...</h1>
 
     <script>
-        // expected url example: jiniouschoi.github.io/android/urlchain.html?href1=next_url
+        // expected url example: jiniouschoi.github.io/android/urlchain.html ? href1=custom_uri & href2=default_url
         var url = location.href;
+
         var q_href1 = 'href1=';
+        var q_href2 = 'href2=';
+
         var i_href1 = url.indexOf(q_href1) + q_href1.length;
-        var v_href1 = url.substr(i_href1);
+        var i_href2 = url.indexOf(q_href2) + q_href2.length;
+
+        var v_href1 = url.substring(i_href1, url.indexOf("&href2"));
+        var v_href2 = url.substring(i_href2);
+
         v_href1 = decodeURIComponent(v_href1);
+        v_href2 = decodeURIComponent(v_href2);
 
         location.assign(v_href1);
+
+        setTimeout(function(){
+            location.assign(v_href2);
+        }, 5000);
     </script>
 </body>
 </html>
